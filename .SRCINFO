@@ -1,0 +1,12 @@
+pkgbase = gptsh
+	pkgdesc = A command-line interface for GPT
+	pkgver = 0.0.1
+	pkgrel = 1
+	url = https://npmjs.com/package/gptsh
+	arch = any
+	license = MIT
+	makedepends = npm
+	depends = nodejs
+	depends = npm
+
+pkgname = gptsh
