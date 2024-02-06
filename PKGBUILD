@@ -1,5 +1,6 @@
 pkgname=gptsh
 pkgver=0.0.1
+_pkgname=gptsh
 pkgrel=1
 pkgdesc="A command-line interface for GPT"
 arch=('any')
@@ -8,16 +9,9 @@ license=('MIT')
 depends=('nodejs' 'npm')
 makedepends=('npm')
 
-package() {
-  # Install the package locally
-  npm install gptsh
 
-  # Move the local installation to the global directory
-  mkdir -p "$pkgdir/usr/lib/node_modules/"
-  cp -r node_modules/gptsh "$pkgdir/usr/lib/node_modules/"
-  
-  # Symlink the binary to the system's bin directory so it's available in PATH
-  mkdir -p "$pkgdir/usr/bin/"
-  ln -s /usr/lib/node_modules/gptsh/src/index.js "$pkgdir/usr/bin/gptsh"
+package() {
+  npm install -g --prefix "${pkgdir}/usr" "${srcdir}/${_pkgname}-${pkgver}.tgz"
+
 }
 
